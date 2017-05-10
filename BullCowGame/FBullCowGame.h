@@ -3,14 +3,18 @@
 
 class FBullCowGame{
 public:
-	void Reset(); // TOO make a more rich return value.
-	int GetMaxTries();
-	int GetCurrentTry();
-	bool IsGameWon();
+	FBullCowGame(); // constructor
+
+	int GetMaxTries() const;
+	int GetCurrentTry() const;
+	bool IsGameWon() const;
+
+	void Reset(); // TOO make a more rich return value
 	bool CheckGuessValidity(std::string); // TOO make More rich return value.
 
 // ^^ Please try and ignore this and focus on the interface above ^^
 private:
-	int MyCurrentTry = 1;
-	int MyMaxTries = 5;
+	// see Constructor for initialistion.
+	int MyCurrentTry;
+	int MyMaxTries;
 };

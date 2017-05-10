@@ -13,6 +13,8 @@ FBullCowGame BCGame; // Instanticate a new game.
 // This is the Entry Point For our application
 int main() 
 {
+	std::cout << BCGame.GetCurrentTry();
+
 	bool bPlayAgain = false;
 	do {
 		PrintIntro();
@@ -35,13 +37,18 @@ void PrintIntro()
 
 void PlayGame()
 {
+	BCGame.Reset();
 	int MaxTries = BCGame.GetMaxTries();
-	std::cout << MaxTries << std::endl;
 
 	// loop for the number of turns asking for guesses.
+	// TODO change from FOR to WHILE loop once we are vaildating tries.
 	for (int count = 1; count <= MaxTries; count++)
 	{
-		std::string Guess = GetGuess();
+		std::string Guess = GetGuess(); // TODO make it check for vaild gesses.
+
+		// Submit Vaild guess to the game.
+		// print the number of bulls and cows.
+
 		std::cout << "Your guess was: " << Guess << std::endl;
 		std::cout << std::endl;
 	}
@@ -53,7 +60,7 @@ std::string GetGuess()
 	int CurrentTry = BCGame.GetCurrentTry();
 
 	// get a guess from the player.
-	std::cout << "Enter your guess: ";
+	std::cout << "Try " << CurrentTry << ". Enter your guess: ";
 	std::string Guess = "";
 	std::getline(std::cin, Guess);
 	return Guess;
